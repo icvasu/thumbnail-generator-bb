@@ -7,8 +7,10 @@ const port = process.env.PORT || 5001;
 
 const app = express();
 
+
 // Configure body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(bodyParser.json());
 
 // Serve static files
