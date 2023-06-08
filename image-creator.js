@@ -31,8 +31,8 @@ const renderHead = () => {
     }
     .datediv{
         position: absolute;
-        right: 10%;
-        top:17%;
+        right: -3%;
+        top:21%;
         height: auto;
         width: 350px;
         text-align: center;
