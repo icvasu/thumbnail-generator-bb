@@ -1,10 +1,18 @@
-# Dev.to Thumbnail-image-for-post API
-Source code for the article "How to Create a Thumbnail-image-for-post API like dev.to with JavaScript in 100 Seconds"
+# Thumbnail Generator
+Creating Thumbnail using Node.js
 
-## :newspaper: Article Links
-- **Dev.to:** https://dev.to/richardwynn/how-to-create-a-thumbnail-image-for-post-api-like-dev-to-with-javascript-in-100-seconds-2igb
+## How to run 
+yarn
+npm start
 
-## :iphone: Keep in Touch
-- **Twitter:** https://twitter.com/RichardWynn01
-- **Medium**: https://richard-wynn.medium.com
-- **Github:** https://github.com/richard-wynn
+## Postman : 
+POST : http://localhost:3030/thumbnail/create
+
+Body : 
+{
+    "title": "Enter your Title",
+    "avatar": "Enter Avatar Link",
+    "full_name": "Enter Author Name",
+    "creation_time": "Enter Date"
+}
+
