@@ -16,3 +16,9 @@ Body :
     "creation_time": "Enter Date"
 }
 
+
+
+## Env
+1. Create .env file in root directory
+2. Copy all data from env.example into .env
+3. Insert your Aws Credentials.
