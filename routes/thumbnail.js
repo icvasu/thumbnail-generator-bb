@@ -88,6 +88,14 @@ var bgList = [
   "https://bigbuddystore.s3.ap-south-1.amazonaws.com/thumbnail-templates/1.4.jpg", 
   "https://bigbuddystore.s3.ap-south-1.amazonaws.com/thumbnail-templates/1.5.jpg"
 ];
+const currentDate = new Date();
+
+
+const formattedDate = currentDate.toLocaleDateString('en-GB', {
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric'
+});
 
 // Select a random index from bgList
 var randomBgIndex = Math.floor(Math.random() * bgList.length);
@@ -96,7 +104,7 @@ var randomBgIndex = Math.floor(Math.random() * bgList.length);
 var custom_image = bgList[randomBgIndex];
 
 
-  const { title, avatar, full_name, creation_time } = post;
+  const { title, avatar, full_name } = post;
   return `
   <body style="margin: 0; padding: 0; height: 100vh;">
     <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
@@ -109,7 +117,7 @@ var custom_image = bgList[randomBgIndex];
         <h1 class="fullname">${full_name}</h1>
     </div>
     <div class="datediv">
-        <h1 class="date">${creation_time}</h1>
+        <h1 class="date">${formattedDate}</h1>
     </div>
     <div class="avatardiv">
     <img src="${avatar}" class="avatar" />
@@ -188,9 +196,9 @@ const s3 = new AWS.S3({
         errors['full_name'] = 'Full name is required!';
       }
   
-      if (!data['creation_time'] || data['creation_time'] === '') {
-        errors['creation_time'] = 'Creation time is required!';
-      }
+      // if (!data['creation_time'] || data['creation_time'] === '') {
+      //   errors['creation_time'] = 'Creation time is required!';
+      // }
   
       if (Object.keys(errors).length > 0) {
         return res.status(500).json({
@@ -216,5 +224,3 @@ const s3 = new AWS.S3({
   });
   
   module.exports = router;
-
-  
