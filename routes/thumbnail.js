@@ -11,6 +11,7 @@ require('dotenv').config()
 const S3_ACCESS_KEY_ID=process.env.S3_ACCESS_KEY_ID
 const S3_SECRET_ACCESS_KEY=process.env.S3_SECRET_ACCESS_KEY
 const S3_REGION=process.env.S3_REGION
+const S3_BUCKET=process.env.S3_BUCKET
 
 const renderHead = () => {
   return `
@@ -128,9 +129,9 @@ const getImageHtml = (post) => {
 
 
 const s3 = new AWS.S3({
-    accessKeyId: 'AKIARS3C26ZP2IOR6C6N',
-    secretAccessKey: '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',
-    region: 'ap-south-1',
+    accessKeyId: S3_ACCESS_KEY_ID,
+    secretAccessKey: S3_SECRET_ACCESS_KEY,
+    region: S3_REGION,
   });
   const createImage = async (post) => {
     // const browser = await puppeteer.launch({           //For Server
@@ -149,7 +150,7 @@ const s3 = new AWS.S3({
       const imageBuffer = await content.screenshot({ omitBackground: false });
       let randomnumber = Math.floor((Math.random() * 100000000000) + 1);
       const s3Params = {
-        Bucket: 'bigbuddystore',
+        Bucket: S3_BUCKET,
         Key: 'thumbnails/'+randomnumber+'_'+fileName,
         Body: imageBuffer,
         ContentType: 'image/png',
