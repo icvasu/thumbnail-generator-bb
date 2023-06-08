@@ -54,6 +54,16 @@ const renderHead = () => {
         font-size: 30px;
         font-family: 'Alfa Slab One', cursive;
     }
+    .avatardiv{
+      position: absolute;
+      top: 14.5%;
+      left: 5.5%;
+  }
+  .avatar{
+      border-radius: 100%;
+      height:400px;
+      width: 400px;
+  }
   </style>
     </head>
   `;
@@ -75,6 +85,9 @@ const renderBody = (post) => {
     </div>
     <div class="datediv">
         <h1 class="date">${creation_time}</h1>
+    </div>
+    <div class="avatardiv">
+        <img src="${avatar}" class="avatar" />
     </div>
   </body>
 `;
